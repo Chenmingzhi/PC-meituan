@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../dist/css/swiper.min.css">
+
+    <!-- Demo styles -->
+    <style>
+    html, body {
+    	font-family: "微软雅黑";
+        position: relative;
+        height: 100%;
+        font-size: 18px;
+    }
+    @media(max-width:1024px ) {
+    	html{font-size: 18px;}
+    }
+    @media(max-width:736px){
+    	html{font-size: 14px;}
+    	div.two div.piao img{
+	    	width: 25rem;
+	    	height: 58rem;
+	    }
+    }
+    @media(max-width:667px){
+    	html{font-size: 12px;}
+    	div.two div.piao img{
+	    	width: 25rem;
+	    	height: 47rem;
+	    }
+    }
+    @media(max-width:568px){
+    	html{font-size: 10px;}
+    	div.two div.piao img{
+	    	width: 20rem;
+	    	height: 40rem;
+	    }
+    }
+    div.there{
+    	background: url(img/rad600-02886328s.jpg) no-repeat;
+    	background-size: cover;
+    	flex-wrap: wrap;
+    	flex-direction: column;
+    	justify-content: center;
+    }
+    div.there div{
+    	font-size: 6rem;
+    	color: white;
+    	font-weight: bold;
+    	width: 100%;
+    	text-shadow: 3px 3px 3px gray;
+    	opacity: 0;
+    }
+    div.there.current div{
+    	animation: tran 1s linear forwards;
+    }
+    @-webkit-keyframes tran{
+    	100%{opacity: 1;}
+    }
+    div.there.current div b{
+    	display: inline-block;
+    	color: white;
+    	animation: tranb 1s linear 1s forwards;
+    	-webkit-transform: translate(-25rem,-30rem) ;
+    }
+    div.there.current div strong{
+    	display: inline-block;
+    	animation: trans 1s linear 1s forwards;
+    	-webkit-transform: translate(25rem,-30rem) ;
+    }
+    @-webkit-keyframes trans{
+    	0%{-webkit-transform: translate(25rem,-10rem) rotateX(0) rotateY(0);}
+    	50%{-webkit-transform:translate(10rem,-5rem) rotateX(0) rotateY(0);}
+    	100%{-webkit-transform:translate(0,0) rotateX(10deg) rotateY(360deg);}
+    }
+    @-webkit-keyframes tranb{
+    	0%{-webkit-transform: translate(-25rem,-10rem) rotateX(0) rotateY(0);}
+    	50%{-webkit-transform:translate(-10rem,-5rem) rotateX(0) rotateY(0);}
+    	100%{-webkit-transform:translate(0,0) rotateX(10deg) rotateY(360deg);}
+    }
+    div.there p{
+    	font-size: 2.5rem;
+    	color: white;
+    	width: 100%;
+    }
+    div.there.current p a{
+    	color: white;
+    	text-decoration: none;
+    	animation: trana 2s linear forwards;
+    }
+    @-webkit-keyframes trana{
+    	100%{opacity: 1;line-height: 4rem;}
+    }
+    div.there p a{
+    	display: block;
+    	line-height: 0rem;
+    	width: 25rem;
+    	margin: 0 auto;
+    	border: 3px solid white;
+    	border-radius: .5rem;
+    	opacity: 0;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 1rem;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    b{
+    	color: #4BB1CF;
+    }
+    .two{
+    	width: 100%;
+    	height: 100%;
+    	background:white;
+    	position: relative;
+    	overflow: hidden;
+    }
+    .two div.piao{
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    }
+    .two div.niao{
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+    }
+    .two div.piao img{
+    	width: 30rem;
+    	height: 40rem;
+    }
+    .two div.run img{
+    	width: 8rem;
+    	height: 8rem;
+    	-webkit-transform: translate(35rem,-5rem);
+    }
+    .two div.run b{
+    	display: block;
+    	opacity: 0;
+    	font-size: 2rem;
+    	-webkit-transform: translate(0,12rem);
+    }
+    .two.current div.run b{
+    	animation: show 1s linear 3s forwards;
+    }
+    @-webkit-keyframes show{
+    	100%{
+    		opacity: 1;
+    	}
+    }
+    
+    .two div.shizi b{
+    	display: block;
+    	opacity: 0;
+    	font-size: 1.5rem;
+    	-webkit-transform: translate(0,10rem);
+    }
+    .two.current div.shizi b{
+    	animation: show1 1s linear 4s forwards;
+    }
+    @-webkit-keyframes show1{
+    	100%{
+    		opacity: 1;
+    	}
+    }
+    
+    .two.current div.run img{
+    	animation: run 3s ease forwards;
+    }
+    @-webkit-keyframes run{
+    	100%{
+    		-webkit-transform: translate(0,12rem);
+    	}
+    }
+    .two div.shizi img{
+    	width: 8rem;
+    	height: 8rem;
+    	-webkit-transform: translate(32rem,-10rem);
+    }
+    .two.current div.shizi img{
+    	animation: shizi 3s ease forwards;
+    }
+    @-webkit-keyframes shizi{
+    	0%{}
+    	100%{
+    		-webkit-transform: translate(2rem,10rem);
+    	}
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        	<div class="swiper-slide two current">
+        		<div class="piao"><img src="img/piao.gif"/></div>
+        		<div class="run"><b>为什么追我???</b><img src="img/run.jpg"/></div>
+        		<div class="shizi"><b>我要上美团APP点外卖！！！</b><img src="img/xiaoshizi.jpg"/></div>
+        		<div class="niao"><img src="img/dayan.gif"/></div>
+        	</div>
+            <div class="swiper-slide there">
+            	<div>
+            		<b>美团</b>·<strong>APP</strong>
+            	</div>
+            	<p><a href="index.html">点击进入美团网</a></p>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script type="text/javascript" src="../dist/js/jquery-1.8.3.min.js" ></script>
+    <script src="../dist/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        onSlideChangeEnd:function(swiper){
+        	$('.swiper-slide').eq(swiper.activeIndex).addClass('current');
+        	$('.swiper-slide').eq(swiper.activeIndex).siblings().removeClass('current');
+        }
+        
+    });
+    </script>
+</body>
+</html>
